@@ -10,13 +10,13 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public bool aktif = false;
     public GameObject prefabObjesi;
 
-     GameObject CanvasGameobject;
+    GameObject CanvasGameobject;
     GameObject placeholder = null;
     public void OnBeginDrag(PointerEventData eventData)
     {
         CanvasGameobject = GameObject.Find("Canvas");
 
-        if (placeholderParent == null && parentToReturnTo == null && aktif )
+        if (placeholderParent == null && parentToReturnTo == null && aktif)
         {
             //! Butonun yok olmasını engellemek için
             GameObject eski = GameObject.Instantiate(this.gameObject);
@@ -27,7 +27,9 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         placeholder.transform.SetParent(this.transform.parent);
         LayoutElement le = placeholder.AddComponent<LayoutElement>();
         le.preferredWidth = this.GetComponent<LayoutElement>().preferredWidth;
-        le.preferredHeight = this.GetComponent<LayoutElement>().preferredHeight;
+        // le.preferredHeight = this.GetComponent<LayoutElement>().preferredHeight;
+        le.preferredHeight = 63.33f;
+
         le.flexibleWidth = 0;
         le.flexibleHeight = 0;
         placeholder.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
@@ -39,11 +41,17 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
+
+
+
         this.transform.position = eventData.position;
         if (placeholder.transform.parent != placeholderParent)
             placeholder.transform.SetParent(placeholderParent);
 
         int newSiblingIndex = placeholderParent.childCount;
+
+
+
         for (int i = 0; i < placeholderParent.childCount; i++)
         {
             if (this.transform.position.y > placeholderParent.GetChild(i).position.y)
@@ -56,6 +64,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             }
         }
         placeholder.transform.SetSiblingIndex(newSiblingIndex);
+
     }
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -77,6 +86,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         Destroy(placeholder);
 
 
-        
+
     }
 }

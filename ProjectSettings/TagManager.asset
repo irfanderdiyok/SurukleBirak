@@ -6,6 +6,9 @@ TagManager:
   tags:
   - print
   - Kodyeri
+  - if
+  - degisken
+  - dongu
   layers:
   - Default
   - TransparentFX

@@ -111,8 +111,8 @@ public class GameMaster : MonoBehaviour
 
     public void kosulFonksiyon(GameObject kosul)
     {
-        string kosul1 = kosul.transform.GetChild(0).GetChild(0).GetComponentInChildren<TMP_InputField>().text;
-        string kosul2 = kosul.transform.GetChild(0).GetChild(1).GetComponentInChildren<TMP_InputField>().text;
+        string kosul1 = kosul.transform.GetChild(0).GetChild(1).GetComponentInChildren<TMP_InputField>().text;
+        string kosul2 = kosul.transform.GetChild(0).GetChild(3).GetComponentInChildren<TMP_InputField>().text;
         //   print(kosul1 + " < " + kosul2);
 
         int kosulSayi1;
