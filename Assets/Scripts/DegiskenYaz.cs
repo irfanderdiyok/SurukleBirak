@@ -8,13 +8,14 @@ public class DegiskenYaz : MonoBehaviour
     private GameObject ekYazObjesi;
 
     public TextMeshProUGUI butonunTexti;
-   
+
 
     public void DegiskenPanelineEris()
     {
-       DeginkenPaneli[] components = Resources.FindObjectsOfTypeAll<DeginkenPaneli>();
-       components[0].PaneliGoster();
-       components[0].degiskenAtama = butonunTexti;
+        DeginkenPaneli[] components = Resources.FindObjectsOfTypeAll<DeginkenPaneli>();
+       
+        components[0].PaneliGoster();
+        components[0].degiskenAtama = butonunTexti;
     }
 
 

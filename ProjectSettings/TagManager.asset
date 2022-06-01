@@ -23,6 +23,7 @@ TagManager:
   - elma
   - textkutusu
   - degiskenkutusu
+  - matematik
   layers:
   - Default
   - TransparentFX

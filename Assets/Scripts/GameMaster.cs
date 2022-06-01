@@ -57,6 +57,10 @@ public class GameMaster : MonoBehaviour
             {
                 donguFonksiyon(kodObjesi.gameObject);
             }
+            if (kodObjesi.CompareTag("matematik"))
+            {
+                matematikFonksiyon(kodObjesi.gameObject);
+            }
             hanlemSayisi++;
         }
         Debug.Log(sonuc.text);
@@ -96,10 +100,123 @@ public class GameMaster : MonoBehaviour
             {
                 donguFonksiyon(kodObjesi.gameObject);
             }
+            if (kodObjesi.CompareTag("matematik"))
+            {
+                matematikFonksiyon(kodObjesi.gameObject);
+            }
             hanlemSayisi++;
         }
 
     }
+
+
+    public void matematikFonksiyon(GameObject matematik)
+    {
+
+
+        String degisken1 = matematik.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text;
+        String hesap1 = matematik.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text;
+        String islem = matematik.transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text;
+        String hesap2 = matematik.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text;
+
+        float deger1 = 0;
+        float deger2 = 0;
+
+        foreach (DegiskenOlusturma degisken in degiskenler)
+        {
+            if (degisken1 == degisken.degiskenAdi)
+            {
+                if (degisken.isString)
+                {
+                    matematik.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    matematik.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    matematik.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    return;
+                }
+                else
+                {
+                    deger1 = float.Parse(degisken.degiskenDegeri);
+                }
+
+            }
+
+            if (hesap1 == degisken.degiskenAdi)
+            {
+                if (degisken.isString)
+                {
+                    matematik.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    matematik.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    matematik.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    return;
+                }
+                else
+                {
+                    deger1 = float.Parse(degisken.degiskenDegeri);
+                }
+
+            }
+            if (hesap2 == degisken.degiskenAdi)
+            {
+                if (degisken.isString)
+                {
+                    matematik.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    matematik.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    matematik.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    return;
+                }
+                else
+                {
+                    deger2 = float.Parse(degisken.degiskenDegeri);
+                }
+
+            }
+
+        }
+        float araIslem = 0;
+        if (islem == "+")
+        {
+            araIslem = deger1 + deger2;
+        }
+        else if (islem == "-")
+        {
+            araIslem = deger1 - deger2;
+        }
+        else if (islem == "/")
+        {
+            araIslem = deger1 / deger2;
+        }
+        else if (islem == "x")
+        {
+            araIslem = deger1 * deger2;
+        }
+        else if (islem == "%")
+        {
+            araIslem = deger1 % deger2;
+        }
+        else if (islem == "?")
+        {
+            if (deger1 >= deger2)
+            {
+                araIslem = deger1;
+            }
+            else
+            {
+                araIslem = deger2;
+            }
+
+        }
+
+        for (int i = 0; i < degiskenler.Count; i++)
+        {
+            if (degiskenler[i].degiskenAdi == degisken1)
+            {
+                degiskenler[i].degiskenDegeri = araIslem.ToString();
+            }
+
+        }
+
+    }
+
 
     public void yazFonksiyon(GameObject metin)
     {
@@ -267,10 +384,70 @@ public class GameMaster : MonoBehaviour
 
     public void donguFonksiyon(GameObject dongu)
     {
-        string dongu1 = dongu.transform.GetChild(0).GetChild(1).GetComponentInChildren<TMP_InputField>().text;
-        string dongu2 = dongu.transform.GetChild(0).GetChild(3).GetComponentInChildren<TMP_InputField>().text;
+        string dongu1 = "";
+        string dongu2 = "";
+
+        if (dongu.transform.GetChild(0).GetChild(1).CompareTag("textkutusu"))
+        {
+            dongu1 = dongu.transform.GetChild(0).GetChild(1).GetComponentInChildren<TMP_InputField>().text;
+        }
+        else
+        {
+            String gecici = dongu.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text;
+            foreach (DegiskenOlusturma degisken in degiskenler)
+            {
+                if (gecici == degisken.degiskenAdi)
+                {
+                    if (degisken.isString)
+                    {
+                        dongu.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                        return;
+                    }
+                    else
+                    {
+                        // deger1 = float.Parse(degisken.degiskenDegeri);
+                        dongu1 = degisken.degiskenDegeri;
+                    }
+
+                }
+
+
+            }
+        }
+
+
+        if (dongu.transform.GetChild(0).GetChild(3).CompareTag("textkutusu"))
+        {
+            dongu2 = dongu.transform.GetChild(0).GetChild(3).GetComponentInChildren<TMP_InputField>().text;
+        }
+        else
+        {
+            String gecici = dongu.transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text;
+            foreach (DegiskenOlusturma degisken in degiskenler)
+            {
+                if (gecici == degisken.degiskenAdi)
+                {
+                    if (degisken.isString)
+                    {
+                        dongu.transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                        return;
+                    }
+                    else
+                    {
+                        // deger1 = float.Parse(degisken.degiskenDegeri);
+                        dongu2 = degisken.degiskenDegeri;
+                    }
+
+                }
+
+
+            }
+
+        }
+
+
         string isaret = dongu.transform.GetChild(0).GetChild(2).GetComponentInChildren<TMP_Text>().text;
-        //   print(kosul1 + " < " + kosul2);
+
 
         int donguSayi1;
         int donguSayi2;

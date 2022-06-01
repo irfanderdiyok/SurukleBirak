@@ -47,14 +47,15 @@ public class Fonksiyon : MonoBehaviour
 
 
 
-    public GameObject semboller;
+    public SembolObjesi semboller;
 
     public GameObject semboltext;
 
     private void Start()
     {
-        semboller = GameObject.Find("GameMaster");
-        semboller = semboller.GetComponent<SembolReferans>().sembolReferanlari;
+        semboller = SembolObjesi.init;
+
+
         if (this.gameObject.transform.parent.CompareTag("Kodyeri"))
         {
             Destroy(this.gameObject);
@@ -65,12 +66,11 @@ public class Fonksiyon : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-
-
+    public int hangiSembol;
     public void SembolDegis()
     {
-        semboller.SetActive(true);
-        semboller.GetComponent<SembolObjesi>().sembol = semboltext.GetComponent<TMPro.TextMeshProUGUI>();
+        semboller.semboluGoster(hangiSembol);
+        semboller.sembol = semboltext.GetComponent<TMPro.TextMeshProUGUI>();
     }
 
 
