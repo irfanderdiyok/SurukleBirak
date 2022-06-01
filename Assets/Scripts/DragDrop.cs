@@ -6,35 +6,35 @@ using UnityEngine.EventSystems;
 public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Transform parentToReturnTo = null;
-    public Transform placeholderParent = null;
+    public Transform bosObjeParent = null;
     public bool aktif = false;
     public GameObject prefabObjesi;
 
     GameObject CanvasGameobject;
-    GameObject placeholder = null;
+    GameObject bosObje = null;
     public void OnBeginDrag(PointerEventData eventData)
     {
         CanvasGameobject = GameObject.Find("Canvas");
 
-        if (placeholderParent == null && parentToReturnTo == null && aktif)
+        if (bosObjeParent == null && parentToReturnTo == null && aktif)
         {
             //! Butonun yok olmasını engellemek için
             GameObject eski = GameObject.Instantiate(this.gameObject);
             eski.transform.SetParent(this.transform.parent);
             eski.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
         }
-        placeholder = new GameObject();
-        placeholder.transform.SetParent(this.transform.parent);
-        LayoutElement le = placeholder.AddComponent<LayoutElement>();
+        bosObje = new GameObject();
+        bosObje.transform.SetParent(this.transform.parent);
+        LayoutElement le = bosObje.AddComponent<LayoutElement>();
         le.preferredWidth = this.GetComponent<LayoutElement>().preferredWidth;
         // le.preferredHeight = this.GetComponent<LayoutElement>().preferredHeight;
         le.preferredHeight = 63.33f;
 
         le.flexibleWidth = 0;
         le.flexibleHeight = 0;
-        placeholder.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
+        bosObje.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
         parentToReturnTo = this.transform.parent;
-        placeholderParent = parentToReturnTo;
+        bosObjeParent = parentToReturnTo;
         this.transform.SetParent(CanvasGameobject.transform);
         GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
@@ -42,28 +42,26 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
 
-
-
         this.transform.position = eventData.position;
-        if (placeholder.transform.parent != placeholderParent)
-            placeholder.transform.SetParent(placeholderParent);
+        if (bosObje.transform.parent != bosObjeParent)
+            bosObje.transform.SetParent(bosObjeParent);
 
-        int newSiblingIndex = placeholderParent.childCount;
+        int newSiblingIndex = bosObjeParent.childCount;
 
 
 
-        for (int i = 0; i < placeholderParent.childCount; i++)
+        for (int i = 0; i < bosObjeParent.childCount; i++)
         {
-            if (this.transform.position.y > placeholderParent.GetChild(i).position.y)
+            if (this.transform.position.y > bosObjeParent.GetChild(i).position.y)
             {
                 newSiblingIndex = i;
-                if (placeholder.transform.GetSiblingIndex() < newSiblingIndex)
+                if (bosObje.transform.GetSiblingIndex() < newSiblingIndex)
                     newSiblingIndex--;
 
                 break;
             }
         }
-        placeholder.transform.SetSiblingIndex(newSiblingIndex);
+        bosObje.transform.SetSiblingIndex(newSiblingIndex);
 
     }
     public void OnEndDrag(PointerEventData eventData)
@@ -73,17 +71,17 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             prefabObjesi = GameObject.Instantiate(prefabObjesi);
             prefabObjesi.transform.SetParent(parentToReturnTo);
-            prefabObjesi.transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
+            prefabObjesi.transform.SetSiblingIndex(bosObje.transform.GetSiblingIndex());
             Destroy(this.gameObject);
         }
         else
         {
             this.transform.SetParent(parentToReturnTo);
-            this.transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
+            this.transform.SetSiblingIndex(bosObje.transform.GetSiblingIndex());
 
         }
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        Destroy(placeholder);
+        Destroy(bosObje);
 
 
 

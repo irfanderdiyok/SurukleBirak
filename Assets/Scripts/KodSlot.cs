@@ -13,7 +13,7 @@ public class KodSlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoint
         DragDrop d = eventData.pointerDrag.GetComponent<DragDrop>();
         if (d != null)
         {
-            d.placeholderParent = this.transform;
+            d.bosObjeParent = this.transform;
         }
     }
     public void OnPointerExit(PointerEventData eventData)
@@ -22,9 +22,9 @@ public class KodSlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoint
             return;
 
         DragDrop d = eventData.pointerDrag.GetComponent<DragDrop>();
-        if (d != null && d.placeholderParent == this.transform)
+        if (d != null && d.bosObjeParent == this.transform)
         {
-            d.placeholderParent = d.parentToReturnTo;
+            d.bosObjeParent = d.parentToReturnTo;
         }
     }
     public void OnDrop(PointerEventData eventData)

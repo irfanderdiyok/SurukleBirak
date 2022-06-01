@@ -6,4 +6,5 @@ public class DegiskenOlusturma
 {
     public string degiskenAdi;
     public string degiskenDegeri;
+    public bool isString;
 }

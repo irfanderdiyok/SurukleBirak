@@ -9,6 +9,20 @@ TagManager:
   - if
   - degisken
   - dongu
+  - yuru
+  - sag
+  - sol
+  - on
+  - arka
+  - onyuru
+  - arkayuru
+  - solyuru
+  - Semboller
+  - engel
+  - portal
+  - elma
+  - textkutusu
+  - degiskenkutusu
   layers:
   - Default
   - TransparentFX
