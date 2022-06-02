@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ekYazObjesi: {fileID: 162391206769080773, guid: acbf06493c60e9b4ba8c8efd52671b97, type: 3}
-  Deger: 
+  butonunTexti: {fileID: 0}
 --- !u!1 &7150027687813527626
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +874,7 @@ MonoBehaviour:
   degiskenTuru: 1
   semboller: {fileID: 0}
   semboltext: {fileID: 0}
+  hangiSembol: 0
 --- !u!114 &1025587791784900634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,6 +1567,7 @@ GameObject:
   - component: {fileID: 7436833464798808499}
   - component: {fileID: 7436833464798808496}
   - component: {fileID: 7436833464798808463}
+  - component: {fileID: 1757990514}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: textkutusu
@@ -1778,6 +1780,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &1757990514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7436833464798808462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de7593692092ee44ae5243d5c4e6e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7436833465147150203
 GameObject:
   m_ObjectHideFlags: 0

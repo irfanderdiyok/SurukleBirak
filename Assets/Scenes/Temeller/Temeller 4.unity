@@ -5537,9 +5537,9 @@ MonoBehaviour:
   sonuc: {fileID: 2062160353}
   kod: {fileID: 1957876662}
   deginkenPaneliRef: {fileID: 1689194366}
-  GorevIcerigi: "Merhaba D\xFCnya Merhaba D\xFCnya Merhaba D\xFCnya "
   gorev: {fileID: 811100877}
-  istenenHamleSayisi: 2
+  GorevIcerigi: 
+  istenenOruntu: vvm
 --- !u!4 &1809892178
 Transform:
   m_ObjectHideFlags: 0
@@ -6777,15 +6777,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8956444913269128684, guid: cd7d5ef496369d24f9b104a3300bb6a3, type: 3}
       propertyPath: m_text
-      value: "B\xF6l\xFCm3"
+      value: "B\xF6l\xFCm5"
       objectReference: {fileID: 0}
     - target: {fileID: 8956444913328834205, guid: cd7d5ef496369d24f9b104a3300bb6a3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Temeller3
+      value: Temeller 5
       objectReference: {fileID: 0}
     - target: {fileID: 8956444914000866094, guid: cd7d5ef496369d24f9b104a3300bb6a3, type: 3}
       propertyPath: m_text
-      value: "D\xF6ng\xFC Fonksiyonunu Kullanarak 3 kere \"Merhaba D\xFCnya\" yaz."
+      value: "\u0130ki tane say\u0131sal de\u011Fi\u015Fken olu\u015Ftur. Bu iki
+        de\u011Fi\u015Fkeni topla."
       objectReference: {fileID: 0}
     - target: {fileID: 8956444914302327826, guid: cd7d5ef496369d24f9b104a3300bb6a3, type: 3}
       propertyPath: m_IsActive
@@ -6793,7 +6794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8956444914358980656, guid: cd7d5ef496369d24f9b104a3300bb6a3, type: 3}
       propertyPath: m_text
-      value: "B\xF6l\xFCm3"
+      value: "B\xF6l\xFCm5"
       objectReference: {fileID: 0}
     - target: {fileID: 8956444914843344001, guid: cd7d5ef496369d24f9b104a3300bb6a3, type: 3}
       propertyPath: m_IsActive

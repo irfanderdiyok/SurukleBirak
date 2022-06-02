@@ -457,9 +457,10 @@ GameObject:
   - component: {fileID: 5997155525644303970}
   - component: {fileID: 5997155525644303971}
   - component: {fileID: 5997155525644303980}
+  - component: {fileID: 786225027}
   m_Layer: 5
   m_Name: InputField (TMP) (1)
-  m_TagString: Untagged
+  m_TagString: textkutusu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,6 +655,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &786225027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997155525644303982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06796a514a4fcec4b8e57147e4edc4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: {fileID: 8072424294028638664, guid: 78bec88705a55ec41b534cb5a6be3e07, type: 3}
 --- !u!1 &5997155525968506364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1124,7 @@ MonoBehaviour:
     m_Top: 10
     m_Bottom: 43
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -1245,8 +1259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dca810577d8ab04c818d888633945f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  degiskenTuru: 1
   semboller: {fileID: 0}
   semboltext: {fileID: 5997155525296251124}
+  hangiSembol: 0
 --- !u!114 &5997155526689517390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1599,9 +1615,10 @@ GameObject:
   - component: {fileID: 5997155526784979309}
   - component: {fileID: 5997155526784979310}
   - component: {fileID: 5997155526784979311}
+  - component: {fileID: 770738934}
   m_Layer: 5
   m_Name: InputField (TMP)
-  m_TagString: Untagged
+  m_TagString: textkutusu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1796,6 +1813,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &770738934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997155526784979305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06796a514a4fcec4b8e57147e4edc4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs: {fileID: 8072424294028638664, guid: 78bec88705a55ec41b534cb5a6be3e07, type: 3}
 --- !u!1 &5997155526857819932
 GameObject:
   m_ObjectHideFlags: 0

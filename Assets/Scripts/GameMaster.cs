@@ -11,7 +11,9 @@ using System;
 public class GameMaster : MonoBehaviour
 {
     public TextMeshProUGUI sonuc;
-    int hanlemSayisi = 0;
+   
+
+    string oruntu = "";
 
 
 
@@ -20,23 +22,63 @@ public class GameMaster : MonoBehaviour
 
     public DeginkenPaneli deginkenPaneliRef;
 
-
-    public string GorevIcerigi;
     public Missions gorev;
-    public int istenenHamleSayisi;
+    public string GorevIcerigi;
+    public string istenenOruntu;
+
+   
 
 
     List<DegiskenOlusturma> degiskenler = new List<DegiskenOlusturma>();
 
 
 
+    public void OrunutIncele(Transform kod)
+    {
+        foreach (Transform kodObjesi in kod)
+        {
+            if (kodObjesi.CompareTag("print"))
+            {
+                oruntu += "p";
+
+
+            }
+            if (kodObjesi.CompareTag("degisken"))
+            {
+                oruntu += "v";
+
+            }
+            if (kodObjesi.CompareTag("if"))
+            {
+
+                oruntu += "i<";
+                OrunutIncele(kodObjesi.GetChild(1));
+                oruntu+=">";
+
+            }
+            if (kodObjesi.CompareTag("dongu"))
+            {
+                oruntu += "l<";
+                OrunutIncele(kodObjesi.GetChild(1));
+                oruntu+=">";
+
+            }
+            if (kodObjesi.CompareTag("matematik"))
+            {
+                oruntu += "m";
+
+            }
+
+        }
+
+    }
 
     public void Derle(GameObject kod)
     {
 
         sonuc.text = "";
         degiskenler.Clear();
-        hanlemSayisi = 0;
+        oruntu = "";
         foreach (Transform kodObjesi in kod.transform)
         {
 
@@ -44,28 +86,36 @@ public class GameMaster : MonoBehaviour
             {
 
                 yazFonksiyon(kodObjesi.gameObject);
+
             }
             if (kodObjesi.CompareTag("degisken"))
             {
                 degiskenFonksiyon(kodObjesi.gameObject);
+
             }
             if (kodObjesi.CompareTag("if"))
             {
+
                 kosulFonksiyon(kodObjesi.gameObject);
+
             }
             if (kodObjesi.CompareTag("dongu"))
             {
+
                 donguFonksiyon(kodObjesi.gameObject);
             }
             if (kodObjesi.CompareTag("matematik"))
             {
                 matematikFonksiyon(kodObjesi.gameObject);
+
             }
-            hanlemSayisi++;
+            
         }
+        OrunutIncele(kod.transform);
         Debug.Log(sonuc.text);
-        Debug.Log(hanlemSayisi);
-        if (sonuc.text == GorevIcerigi && istenenHamleSayisi >= hanlemSayisi)
+       
+        Debug.Log(oruntu);
+        if (sonuc.text == GorevIcerigi && oruntu ==istenenOruntu)
         {
 
             gorev.Zafer();
@@ -90,21 +140,25 @@ public class GameMaster : MonoBehaviour
             }
             if (kodObjesi.CompareTag("degisken"))
             {
+
                 degiskenFonksiyon(kodObjesi.gameObject);
             }
             if (kodObjesi.CompareTag("if"))
             {
+
                 kosulFonksiyon(kodObjesi.gameObject);
             }
             if (kodObjesi.CompareTag("dongu"))
             {
+
                 donguFonksiyon(kodObjesi.gameObject);
             }
             if (kodObjesi.CompareTag("matematik"))
             {
+
                 matematikFonksiyon(kodObjesi.gameObject);
             }
-            hanlemSayisi++;
+           
         }
 
     }
@@ -302,11 +356,70 @@ public class GameMaster : MonoBehaviour
 
     public void kosulFonksiyon(GameObject kosul)
     {
-        string kosul1 = kosul.transform.GetChild(0).GetChild(1).GetComponentInChildren<TMP_InputField>().text;
-        string isaret = kosul.transform.GetChild(0).GetChild(2).GetComponentInChildren<TMP_Text>().text;
-        string kosul2 = kosul.transform.GetChild(0).GetChild(3).GetComponentInChildren<TMP_InputField>().text;
-        print(kosul1 + isaret + kosul2);
+        string kosul1 = "";
+        string kosul2 = "";
 
+        if (kosul.transform.GetChild(0).GetChild(1).CompareTag("textkutusu"))
+        {
+            kosul1 = kosul.transform.GetChild(0).GetChild(1).GetComponentInChildren<TMP_InputField>().text;
+        }
+        else
+        {
+            String gecici = kosul.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text;
+            foreach (DegiskenOlusturma degisken in degiskenler)
+            {
+                if (gecici == degisken.degiskenAdi)
+                {
+                    if (degisken.isString)
+                    {
+                        kosul.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                        return;
+                    }
+                    else
+                    {
+                        // deger1 = float.Parse(degisken.degiskenDegeri);
+                        kosul1 = degisken.degiskenDegeri;
+                    }
+
+                }
+
+
+            }
+        }
+
+
+        if (kosul.transform.GetChild(0).GetChild(3).CompareTag("textkutusu"))
+        {
+            kosul2 = kosul.transform.GetChild(0).GetChild(3).GetComponentInChildren<TMP_InputField>().text;
+        }
+        else
+        {
+            String gecici = kosul.transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text;
+            foreach (DegiskenOlusturma degisken in degiskenler)
+            {
+                if (gecici == degisken.degiskenAdi)
+                {
+                    if (degisken.isString)
+                    {
+                        kosul.transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                        return;
+                    }
+                    else
+                    {
+                        // deger1 = float.Parse(degisken.degiskenDegeri);
+                        kosul2 = degisken.degiskenDegeri;
+                    }
+
+                }
+
+
+            }
+
+        }
+
+
+
+        string isaret = kosul.transform.GetChild(0).GetChild(2).GetComponentInChildren<TMP_Text>().text;
         int kosulSayi1;
         int kosulSayi2;
 
@@ -318,7 +431,7 @@ public class GameMaster : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log(e.Data);
+            Debug.Log("Hata Oluştu:"+e.Data);
             kosulSayi1 = 0;
             kosulSayi2 = 0;
 
@@ -467,7 +580,7 @@ public class GameMaster : MonoBehaviour
         }
 
 
-        hanlemSayisi = (hanlemSayisi + 1) - (donguSayi2 - donguSayi1);
+        
 
         if (isaret == "<")
         {

@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 6447908292893259707}
   - component: {fileID: 477949946238396986}
   m_Layer: 5
-  m_Name: DegiskenSecmeButonu
+  m_Name: KosulButon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: 200
+  m_MinWidth: 215
   m_MinHeight: 63.63
   m_PreferredWidth: -1
   m_PreferredHeight: -1
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06796a514a4fcec4b8e57147e4edc4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: {fileID: 4308134469725650044, guid: 05bc0276462ccce469657de92710eee1, type: 3}
+  prefabs: {fileID: 4308134469725650044, guid: a8ba897f3c5d72c449cd74fa3c04022d, type: 3}
 --- !u!114 &477949946238396986
 MonoBehaviour:
   m_ObjectHideFlags: 0

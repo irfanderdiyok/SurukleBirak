@@ -68,8 +68,8 @@ GameObject:
   - component: {fileID: 4308134469725650042}
   - component: {fileID: 4308134469725650035}
   m_Layer: 5
-  m_Name: MetinYeri
-  m_TagString: Untagged
+  m_Name: KosulMetin
+  m_TagString: textkutusu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: 200
+  m_MinWidth: 215
   m_MinHeight: 63.63
   m_PreferredWidth: -1
   m_PreferredHeight: -1
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06796a514a4fcec4b8e57147e4edc4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: {fileID: 8072424294028638664, guid: 489efb3fcfd39084e95eebc7b8410313, type: 3}
+  prefabs: {fileID: 8072424294028638664, guid: 78bec88705a55ec41b534cb5a6be3e07, type: 3}
 --- !u!1 &4308134469971039076
 GameObject:
   m_ObjectHideFlags: 0
