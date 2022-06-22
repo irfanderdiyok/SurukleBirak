@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/AraMenu.unity
     guid: 4ffbd4c4e73647d4e85161ba2ffd1afa
   - enabled: 1
+    path: Assets/Scenes/Temeller/Temeller 1.unity
+    guid: 3163e629cd412bb49b60840497ae5517
+  - enabled: 1
     path: Assets/Scenes/Oyun1.unity
     guid: a8663980aa57aa5458b5359575a0e8fe
   - enabled: 1

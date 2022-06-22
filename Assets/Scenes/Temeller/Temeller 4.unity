@@ -5539,7 +5539,7 @@ MonoBehaviour:
   deginkenPaneliRef: {fileID: 1689194366}
   gorev: {fileID: 811100877}
   GorevIcerigi: 
-  istenenOruntu: vvm
+  istenenOruntu: vvmp
 --- !u!4 &1809892178
 Transform:
   m_ObjectHideFlags: 0

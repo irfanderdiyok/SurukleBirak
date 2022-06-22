@@ -8697,7 +8697,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8956444913328834205, guid: cd7d5ef496369d24f9b104a3300bb6a3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Temeller 1
+      value: Temeller1
       objectReference: {fileID: 0}
     - target: {fileID: 8956444914000866094, guid: cd7d5ef496369d24f9b104a3300bb6a3, type: 3}
       propertyPath: m_text
@@ -8705,7 +8705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8956444914302327826, guid: cd7d5ef496369d24f9b104a3300bb6a3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8956444914843344001, guid: cd7d5ef496369d24f9b104a3300bb6a3, type: 3}
       propertyPath: m_IsActive

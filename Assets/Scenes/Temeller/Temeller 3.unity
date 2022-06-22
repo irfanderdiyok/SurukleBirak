@@ -5538,7 +5538,7 @@ MonoBehaviour:
   kod: {fileID: 1957876662}
   deginkenPaneliRef: {fileID: 1689194366}
   gorev: {fileID: 811100877}
-  GorevIcerigi: "Merhaba D\xFCnya"
+  GorevIcerigi: " Merhaba D\xFCnya"
   istenenOruntu: vp
 --- !u!4 &1809892178
 Transform:
